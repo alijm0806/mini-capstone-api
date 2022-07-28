@@ -2,3 +2,25 @@ GET http://localhost:3000/products
 
 ###
 GET http://localhost:3000/products/2
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "keyboard", "price": 25, "description": "you type on it", "image_url": "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/pro-keyboard/pro-clicky-hero.png"
+}
+
+###
+PATCH http://localhost:3000/products/10
+Content-Type: application/json
+
+{
+  "name": "keyboard", 
+  "price": 30, 
+  "description": "you type on it", 
+  "image_url": "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/pro-keyboard/pro-clicky-hero.png"
+}
+
+###
+DELETE http://localhost:3000/products/8
