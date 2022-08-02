@@ -5,9 +5,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    p params["id"]
     product = Product.find_by(id: params["id"])
-    render json: product.as_json
+    render json: product.as_json(methods: [:friendly_created_at, :is_discounted?, :tax, :total])
   end
 
   def create
@@ -24,10 +23,10 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params["id"])
-    product.name = params[:name]
-    product.price = params[:price]
-    product.description = params[:description]
-    product.image_url = params[:image_url]
+    product.name = params[:name] || product.name
+    product.price = params[:price] || product.price
+    product.description = params[:description] || product.description
+    product.image_url = params[:image_url] || product.image_url
 
     product.save
     render json: product.as_json
