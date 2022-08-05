@@ -1,7 +1,12 @@
 class Product < ApplicationRecord
-  def friendly_created_at
-    created_at.strftime("%B %e, %Y")
-  end
+  belongs_to :supplier
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: { greater_than: 0 }
+  validates :description, presence: true
+  validates :description, length: { in: 5..500 }
 
   def is_discounted?
     price <= 10

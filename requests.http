@@ -1,26 +1,19 @@
 GET http://localhost:3000/products.json
 
 ###
-GET http://localhost:3000/products/5.json
+GET http://localhost:3000/products/10.json
 
 ###
 POST http://localhost:3000/products.json
 Content-Type: application/json
 
-{
-  "name": "computer", "price": 999, "description": "you type on it", "image_url": "https://www.computerhope.com/cdn/big/computer.jpg"
-}
+{"name": "", "price": 999, "description": "you type on it", "image_url1": "https://www.computerhope.com/cdn/big/computer.jpg", "supplier_id": 3}
 
 ###
 PATCH http://localhost:3000/products/10.json
 Content-Type: application/json
 
-{
-  "name": "keyboard", 
-  "price": 30, 
-  "description": "you type on it", 
-  "image_url": "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/pro-keyboard/pro-clicky-hero.png"
-}
+{ "image_url2": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/peripherals/input-devices/dell/keyboards/km3322w/media-gallery/keyboard-mouse-km3322w-gallery-1.psd?fmt=pjpg&pscan=auto&scl=1&hei=402&wid=676&qlt=100,0&resMode=sharp2&size=676,402"}
 
 ###
-DELETE http://localhost:3000/products/11.json
+DELETE http://localhost:3000/products/22
