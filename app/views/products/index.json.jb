@@ -4,8 +4,11 @@
     name: product.name,
     price: product.price,
     description: product.description,
-    image:  product.image
     created_at: product.created_at,
     updated_at: product.updated_at,
+    supplier_id: product.supplier_id,
+    is_discounted?: product.is_discounted?,
+    supplier: product.supplier,
+    images: product.images,
   }
 end
