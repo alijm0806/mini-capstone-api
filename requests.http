@@ -7,7 +7,7 @@ GET http://localhost:3000/products/10.json
 POST http://localhost:3000/products.json
 Content-Type: application/json
 
-{"name": "", "price": 999, "description": "you type on it", "image_url1": "https://www.computerhope.com/cdn/big/computer.jpg", "supplier_id": 3}
+{"name": "Lamp", "price": 50, "description": "it gives you lights", "url": "https://www.ikea.com/us/en/images/products/arstid-table-lamp-with-led-bulb-nickel-plated-white__0609332_pe684455_s5.jpg", "supplier_id": 3}
 
 ###
 PATCH http://localhost:3000/products/10.json
@@ -28,4 +28,16 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "password",
   "password_confirmation": "password"
+}
+
+
+### login/session create
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+
+  "email": "test@test.com",
+  "password": "password"
+
 }
