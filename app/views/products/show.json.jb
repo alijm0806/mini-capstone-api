@@ -9,4 +9,6 @@
   is_discounted?: @product.is_discounted?,
   supplier: @product.supplier,
   images: @product.images,
+  categories: @product.categories,
+
 }

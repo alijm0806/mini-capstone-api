@@ -1,0 +1,18 @@
+3) Create a carted_products controller.
+4) Make a carted_products create action.
+* Assume everything is coming from params. Test it in requests.http.
+* Change the user_id to come from current_user.id instead of params. Test it in requests.http
+* Change the order_id to be nil instead of params. Test it in requests.http
+* Change the status to always be “carted” instead of params. Test it in requests.http
+
+
+
+5) Make a carted_products index action.
+* Assume it’s showing all carted_products. Test it in requests.http.
+* Change it to only show the current user’s carted products with a status of “carted”. Test it in requests.http.
+
+###########
+Fix the orders create action.
+* Find all the current user’s carted products with a status of “carted”
+* Create a new order with user_id, subtotal, tax, and total (this will require a loop to calculate)
+* Modify the carted products to change the status to “purchased” and the order_id to the new order’s id

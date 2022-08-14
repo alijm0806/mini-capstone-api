@@ -1,13 +1,19 @@
-GET http://localhost:3000/products.json
+@jessica_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjA1MzcyNTF9.FUvtINNB7pL1ZoCGsqwEjUiqxaD-ebEpWHq0ZiFFzLU
+
+@test_jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA0MDgzNTJ9.RwnG9itfxQVYv8YbsaLwSkhkmvrfxjV_BXXFiJew6UQ
+
+###
+GET http://localhost:3000/products.json?category=furniture
 
 ###
 GET http://localhost:3000/products/10.json
 
 ###
 POST http://localhost:3000/products.json
+Authorization: Bearer {{jessica_jwt}}
 Content-Type: application/json
 
-{"name": "Lamp", "price": 50, "description": "it gives you lights", "url": "https://www.ikea.com/us/en/images/products/arstid-table-lamp-with-led-bulb-nickel-plated-white__0609332_pe684455_s5.jpg", "supplier_id": 3}
+{"name": "comforter", "price": 50, "description": "it covers you.","quantity": 2, "supplier_id": 3}
 
 ###
 PATCH http://localhost:3000/products/10.json
@@ -17,7 +23,7 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/products/22
-
+Authorization: Bearer {{jessica_jwt}}
 
 ### Users create (signup)
 POST http://localhost:3000/users.json
@@ -36,8 +42,37 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-
-  "email": "test@test.com",
+"email": "jessica@jessica.com",
   "password": "password"
 
 }
+
+### orders create
+POST http://localhost:3000/orders
+Authorization: Bearer {{jessica_jwt}}
+Content-Type: application/json
+
+
+### orders index
+GET http://localhost:3000/orders.json
+Authorization: Bearer {{jessica_jwt}}
+
+### orders show
+GET http://localhost:3000/orders/43.json
+Authorization: Bearer {{jessica_jwt}}
+
+
+### carted_products create(add to cart)
+POST http://localhost:3000/carted_products.json
+Authorization: Bearer {{jessica_jwt}}
+Content-Type: application/json
+
+{"product_id": 23,"quantity": 2}
+
+
+### carted_products index
+GET http://localhost:3000/carted_products.json
+Authorization: Bearer {{jessica_jwt}}
+
+### carted_products delete
+DELETE http://localhost:3000/carted_products/3
